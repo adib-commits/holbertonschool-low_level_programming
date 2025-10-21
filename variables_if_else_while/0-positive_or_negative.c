@@ -3,19 +3,19 @@
 #include <stdio.h>
 
 /**
- * main - Entry point
- *
- * Description: Assigns a random number to variable n and
- * prints whether the number is positive, negative, or zero.
- *
- * Return: Always 0 (Success)
- */
+* main - Entry point
+*
+* Description: Assigns a random number to variable n and
+* prints whether the number is positive, negative, or zero.
+*
+* Return: Always 0 (Success)
+*/
 int main(void)
 {
 int n;
 
 srand(time(0));
- n = rand() - RAND_MAX / 2;
+n = rand() - RAND_MAX / 2;
 
 if (n > 0)
 {
