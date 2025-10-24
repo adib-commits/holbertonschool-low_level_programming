@@ -5,12 +5,10 @@
 */
 void print_alphabet(void)
 {
-char alphabet[] = "abcdefghijklmnopqrstuvwxyz\n";
-int i = 0;
-
-while (alphabet[i] != '\0')
+char alphabet = 'a';
+for (alphabet = 'a'; alphabet <= 'z'; alphabet++)
 {
-_putchar(alphabet[i]);
-i++;
+	_putchar(alphabet);
 }
+_putchar('\n');
 }
