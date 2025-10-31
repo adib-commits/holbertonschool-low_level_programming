@@ -16,7 +16,7 @@ while (src[i] != '\0')
 dest[i] = src[i];
 i++;
 }
-dest[i] = '\0'; /* add terminating null byte */
+dest[i] = '\0'; /* include the null terminator */
 
-(return dest);
+return (dest);
 }
