@@ -4,5 +4,6 @@
 int _putchar(char c);
 void _puts(char *str);
 void _cap_string_c(void);
+void _print_array_c(void);
 
 #endif
