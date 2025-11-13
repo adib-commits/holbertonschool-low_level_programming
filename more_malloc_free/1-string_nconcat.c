@@ -23,7 +23,7 @@ len2 = strlen(s2);
 if (n >= len2)
 n = len2;
 
-new_str = malloc(len1 + n + 1); /* +1 for null terminator */
+new_str = malloc(len1 + n + 1);
 if (!new_str)
 return (NULL);
 
