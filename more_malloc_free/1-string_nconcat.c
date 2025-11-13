@@ -3,39 +3,39 @@
 #include <string.h>
 
 /**
- * string_nconcat - Concatenates two strings, using at most n bytes from s2
- * @s1: First string
- * @s2: Second string
- * @n: Maximum number of bytes from s2 to use
+ * string_nconcat - concatenates s1 and the first n bytes of s2
+ * @s1: first string
+ * @s2: second string
+ * @n: maximum number of bytes from s2 to concatenate
  *
- * Return: Pointer to newly allocated string, or NULL on failure
+ * Return: pointer to newly allocated concatenated string, or NULL on failure
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-unsigned int len1 = 0, len2 = 0, i, j;
-char *new_str;
+char *result;
+unsigned int len1 = 0, len2 = 0, i, total_len;
 
 if (s1)
 len1 = strlen(s1);
 if (s2)
 len2 = strlen(s2);
 
-if (n >= len2)
+if (n > len2)
 n = len2;
 
-new_str = malloc(len1 + n + 1);
-if (!new_str)
+total_len = len1 + n;
+
+result = malloc(sizeof(char) * (total_len + 1));
+if (!result)
 return (NULL);
 
-
 for (i = 0; i < len1; i++)
-new_str[i] = s1[i];
+result[i] = s1[i];
 
+for (i = 0; i < n; i++)
+result[len1 + i] = s2[i];
 
-for (j = 0; j < n; j++)
-new_str[i + j] = s2[j];
+result[total_len] = '\0';
 
-new_str[i + j] = '\0';
-
-return (new_str);
+return (result);
 }
