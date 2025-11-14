@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include "dog.h"
+#ifndef DOG_H
+#define DOG_H
 
 /**
  * struct dog - information about dogs
@@ -9,13 +9,11 @@
  */
 struct dog
 {
-char *name
+char *name;
 float age;
 char *owner;
 };
 
-
 typedef struct dog dog_t;
-
 
 #endif
