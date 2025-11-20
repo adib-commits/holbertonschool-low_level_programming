@@ -2,8 +2,8 @@
 
 /**
  * print_name - prints a name using a function pointer
- * @name: the name to print
- * @f: pointer to a function that takes a char * and returns nothing
+ * @name: name to print
+ * @f: function pointer to a printing function
  *
  * Return: Nothing.
  */
