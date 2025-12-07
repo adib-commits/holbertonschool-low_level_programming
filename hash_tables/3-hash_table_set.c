@@ -1,4 +1,6 @@
 #include "hash_tables.h"
+#include "stdlib.h"
+#include <string.h>
 
 /**
  * hash_table_set - Adds or updates a key/value pair in a hash table
@@ -50,10 +52,5 @@ free(node);
 return (0);
 
 }
-
-node->value = value_copy;
-node->next = ht->array[index];
-ht->array[index] = node;
-
 return (1);
 }
