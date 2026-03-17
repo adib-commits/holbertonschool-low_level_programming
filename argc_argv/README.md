@@ -1,1 +1,1 @@
-read
+not empty
