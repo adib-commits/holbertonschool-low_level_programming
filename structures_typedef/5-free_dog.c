@@ -1,20 +1,20 @@
-#include <stdlib.h>
 #include "dog.h"
+#include <stdlib.h>
 
 /**
  * free_dog - frees a dog structure
- * @d: pointer to the dog to free
+ * @d: pointer to dog
  */
 void free_dog(dog_t *d)
 {
-if (!d)
-return;
+	if (d == NULL)
+		return;
 
-if (d->name)
-free(d->name);
+	if (d->name != NULL)
+		free(d->name);
 
-if (d->owner)
-free(d->owner);
+	if (d->owner != NULL)
+		free(d->owner);
 
-free(d);
+	free(d);
 }
