@@ -1,44 +1,30 @@
 # Valgrind Analysis
 
-## Program: heap_example.c
+---
+
+## Program: stack_example.c
+
+### Valgrind Output (simplified)
+
+Invalid read of size 4  
+Address 0x... is not stack'd, malloc'd or (recently) free'd
 
 ---
 
-### Issue 1
+### Error Type
 
-**Type:** Memory Leak
-
-**Valgrind Output:**
-(paste part of it)
-
-**Memory Object:**
-Heap allocation of X bytes at line Y
-
-**Explanation:**
-The allocated memory is never freed. The pointer to the memory is lost, resulting in a leak.
-
-**Causal Chain:**
-malloc → pointer reassigned/lost → no free → memory leak
+Invalid read → use of invalid memory  
+More specifically: **dangling pointer dereference**
 
 ---
 
-### Issue 2
+### Memory Object Involved
 
-**Type:** Use-after-free
-
-**Memory Object:**
-Freed heap memory
-
-**Explanation:**
-The pointer continues to be used after the memory has been freed, resulting in undefined behavior.
+- Local variable `x` declared inside function `get_value()`
+- Stored in the stack frame of that function
 
 ---
 
-## AI Analysis Review
+### Root Cause Analysis
 
-An AI tool suggested that...
-
-This is incorrect because...
-
-Correct explanation:
-...
+The function `get_value()` returns the address of a local variable:
