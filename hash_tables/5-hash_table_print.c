@@ -1,38 +1,36 @@
-#include "hash_tables.h"
-#include <stddef.h>
 #include <stdio.h>
+#include "hash_tables.h"
 
 /**
  * hash_table_print - Prints a hash table
  * @ht: The hash table to print
  *
- * Return: Nothing
+ * Prints key/value pairs in array order, list order within each bucket.
+ * Format: {'key': 'value', ...}
+ * Does nothing if ht is NULL.
  */
 void hash_table_print(const hash_table_t *ht)
 {
-unsigned long int i;
-hash_node_t *node;
-int first = 1;
+	hash_node_t *node;
+	unsigned long int i;
+	int printed;
 
-if (ht == NULL)
-return;
+	if (ht == NULL)
+		return;
 
-printf("{");
-
-for (i = 0; i < ht->size; i++)
-{
-node = ht->array[i];
-while (node)
-        {
-if (!first)
-printf(", ");
-
-printf("'%s': '%s'", node->key, node->value);
-first = 0;
-
-node = node->next;
-}
-}
-
-printf("}\n");
+	printed = 0;
+	printf("{");
+	for (i = 0; i < ht->size; i++)
+	{
+		node = ht->array[i];
+		while (node != NULL)
+		{
+			if (printed)
+				printf(", ");
+			printf("'%s': '%s'", node->key, node->value);
+			printed = 1;
+			node = node->next;
+		}
+	}
+	printf("}\n");
 }
